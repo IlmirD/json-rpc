@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>...</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+        * {
+            font-family: 'Nunito';
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            margin: 100px 0;
+        }
+
+        .input {
+            width: 30vw;
+            font-size: 16px;
+            margin-top: 15px;
+            display: inline-block;
+            border: 1px solid #D0D0D0;
+            border-radius: 20px;
+            height: 40px;
+            padding: 5px 15px;
+            -webkit-box-shadow: 1px 1px 6px -2px rgba(34, 60, 80, 0.18);
+            -moz-box-shadow: 1px 1px 6px -2px rgba(34, 60, 80, 0.18);
+            box-shadow: 1px 1px 6px -2px rgba(34, 60, 80, 0.18);
+        }
+
+        .input::placeholder {
+            font-size: 16px;
+        }
+
+        .input:focus {
+            outline: 0;
+            border: 1px solid #0d6efd;
+        }
+
+        .result {
+            margin: 10px 0px;
+            word-wrap: break-word;
+        }
+
+        .btn {
+            border: none;
+            background-color: #0d6efd;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Запрос на сервер</h1>
+
+        <form method="post" accept="/post">
+            {% csrf_token %}
+            <input required name="method" class="input" placeholder="Название метода" />
+            <br>
+            <textarea required name="params" class="input" style="height: 100px;" placeholder="Параметры"></textarea>
+            <br>
+            <p class="result">{{ result }}</p>
+            <input type="submit" class="btn" value="Отправить" />
+        </form>
+    </div>
+
+</body>
+
+</html>
